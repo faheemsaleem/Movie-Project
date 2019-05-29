@@ -18,7 +18,7 @@ passport.use(
     {
       clientID: "96c41aff5826a49aa743",
       clientSecret: "76664fc236862897f62acfa8fde5f7ea9bbf3b83",
-      callbackURL: "http://localhost:3000/auth/github/callback"
+      callbackURL: "https://faheemmovie.herokuapp.com/auth/github/callback"
     },
     async (Token, refreshToken, Profile, done) => {
       const user = await JSON.parse(Profile._raw);
