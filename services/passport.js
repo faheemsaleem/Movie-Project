@@ -14,11 +14,14 @@ passport.deserializeUser((id, done) => {
 });
 
 passport.use(
-  new GoogleStrategy({
-      clientID:"395041283121-s1ui18ljfak2d3eqbrilejl77hgiq5pm.apps.googleusercontent.com",
+  new GoogleStrategy(
+    {
+      clientID:
+        "395041283121-s1ui18ljfak2d3eqbrilejl77hgiq5pm.apps.googleusercontent.com",
       clientSecret: "86CrkkurIxSO7Aw11ZWsBAoS",
-      callbackURL: "/home"
-    },(accessToken, refreshToken, profile, done) => {
+      callbackURL: "https://faheemmovie.herokuapp.com/home"
+    },
+    (accessToken, refreshToken, profile, done) => {
       Users.findOne({ googleId: profile.id }).then(alreadyUser => {
         if (alreadyUser) {
           done(null, alreadyUser);
